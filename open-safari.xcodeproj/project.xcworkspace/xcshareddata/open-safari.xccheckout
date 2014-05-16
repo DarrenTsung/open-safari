@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>7FC1CB06-38E5-4CA8-9A31-4C70601FB64C</string>
+	<key>IDESourceControlProjectName</key>
+	<string>open-safari</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>A30C9173-ABCD-41EA-BBC8-2D53118D3EFB</key>
+		<string>https://github.com/DarrenTsung/open-safari.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>ddd/open-safari/open-safari.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>A30C9173-ABCD-41EA-BBC8-2D53118D3EFB</key>
+		<string>../../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/DarrenTsung/open-safari.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>A30C9173-ABCD-41EA-BBC8-2D53118D3EFB</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>A30C9173-ABCD-41EA-BBC8-2D53118D3EFB</string>
+			<key>IDESourceControlWCCName</key>
+			<string>open-safari</string>
+		</dict>
+	</array>
+</dict>
+</plist>

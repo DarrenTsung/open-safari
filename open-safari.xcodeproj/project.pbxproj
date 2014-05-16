@@ -1,0 +1,441 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6CE2267019268D13000B595E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CE2266F19268D13000B595E /* Cocoa.framework */; };
+		6CE2267A19268D13000B595E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6CE2267819268D13000B595E /* InfoPlist.strings */; };
+		6CE2267C19268D13000B595E /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6CE2267B19268D13000B595E /* main.mm */; };
+		6CE2268019268D13000B595E /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 6CE2267E19268D13000B595E /* Credits.rtf */; };
+		6CE2269019268D13000B595E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CE2266F19268D13000B595E /* Cocoa.framework */; };
+		6CE226A419268DEA000B595E /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CE226A319268DEA000B595E /* OpenGL.framework */; };
+		6CE226A619268DEF000B595E /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CE226A519268DEF000B595E /* IOKit.framework */; };
+		6CE226A819268E10000B595E /* glew.c in Sources */ = {isa = PBXBuildFile; fileRef = 6CE226A719268E10000B595E /* glew.c */; };
+		6CE226AA19268E19000B595E /* libglfw.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CE226A919268E19000B595E /* libglfw.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		6CE2269119268D13000B595E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6CE2266419268D13000B595E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6CE2266B19268D13000B595E;
+			remoteInfo = "open-safari";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		6CE2266C19268D13000B595E /* open-safari.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "open-safari.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6CE2266F19268D13000B595E /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		6CE2267719268D13000B595E /* open-safari-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "open-safari-Info.plist"; sourceTree = "<group>"; };
+		6CE2267919268D13000B595E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		6CE2267B19268D13000B595E /* main.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
+		6CE2267D19268D13000B595E /* open-safari-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "open-safari-Prefix.pch"; sourceTree = "<group>"; };
+		6CE2267F19268D13000B595E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		6CE2268D19268D13000B595E /* open-safariTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "open-safariTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6CE226A319268DEA000B595E /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
+		6CE226A519268DEF000B595E /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
+		6CE226A719268E10000B595E /* glew.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = glew.c; path = thirdparty/glew/src/glew.c; sourceTree = "<group>"; };
+		6CE226A919268E19000B595E /* libglfw.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libglfw.a; path = thirdparty/glfw/libglfw.a; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6CE2266919268D13000B595E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6CE226A619268DEF000B595E /* IOKit.framework in Frameworks */,
+				6CE226A419268DEA000B595E /* OpenGL.framework in Frameworks */,
+				6CE2267019268D13000B595E /* Cocoa.framework in Frameworks */,
+				6CE226AA19268E19000B595E /* libglfw.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6CE2268A19268D13000B595E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6CE2269019268D13000B595E /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6CE2266319268D13000B595E = {
+			isa = PBXGroup;
+			children = (
+				6CE2267519268D13000B595E /* open-safari */,
+				6CE2266E19268D13000B595E /* Frameworks */,
+				6CE2266D19268D13000B595E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		6CE2266D19268D13000B595E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6CE2266C19268D13000B595E /* open-safari.app */,
+				6CE2268D19268D13000B595E /* open-safariTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6CE2266E19268D13000B595E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6CE226A719268E10000B595E /* glew.c */,
+				6CE226A919268E19000B595E /* libglfw.a */,
+				6CE226A519268DEF000B595E /* IOKit.framework */,
+				6CE226A319268DEA000B595E /* OpenGL.framework */,
+				6CE2266F19268D13000B595E /* Cocoa.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6CE2267519268D13000B595E /* open-safari */ = {
+			isa = PBXGroup;
+			children = (
+				6CE2267B19268D13000B595E /* main.mm */,
+				6CE2267619268D13000B595E /* Supporting Files */,
+			);
+			path = "open-safari";
+			sourceTree = "<group>";
+		};
+		6CE2267619268D13000B595E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				6CE2267719268D13000B595E /* open-safari-Info.plist */,
+				6CE2267819268D13000B595E /* InfoPlist.strings */,
+				6CE2267D19268D13000B595E /* open-safari-Prefix.pch */,
+				6CE2267E19268D13000B595E /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		6CE2266B19268D13000B595E /* open-safari */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6CE2269D19268D13000B595E /* Build configuration list for PBXNativeTarget "open-safari" */;
+			buildPhases = (
+				6CE2266819268D13000B595E /* Sources */,
+				6CE2266919268D13000B595E /* Frameworks */,
+				6CE2266A19268D13000B595E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "open-safari";
+			productName = "open-safari";
+			productReference = 6CE2266C19268D13000B595E /* open-safari.app */;
+			productType = "com.apple.product-type.application";
+		};
+		6CE2268C19268D13000B595E /* open-safariTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6CE226A019268D13000B595E /* Build configuration list for PBXNativeTarget "open-safariTests" */;
+			buildPhases = (
+				6CE2268919268D13000B595E /* Sources */,
+				6CE2268A19268D13000B595E /* Frameworks */,
+				6CE2268B19268D13000B595E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6CE2269219268D13000B595E /* PBXTargetDependency */,
+			);
+			name = "open-safariTests";
+			productName = "open-safariTests";
+			productReference = 6CE2268D19268D13000B595E /* open-safariTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6CE2266419268D13000B595E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = Lambawoof;
+				TargetAttributes = {
+					6CE2268C19268D13000B595E = {
+						TestTargetID = 6CE2266B19268D13000B595E;
+					};
+				};
+			};
+			buildConfigurationList = 6CE2266719268D13000B595E /* Build configuration list for PBXProject "open-safari" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 6CE2266319268D13000B595E;
+			productRefGroup = 6CE2266D19268D13000B595E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6CE2266B19268D13000B595E /* open-safari */,
+				6CE2268C19268D13000B595E /* open-safariTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6CE2266A19268D13000B595E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6CE2267A19268D13000B595E /* InfoPlist.strings in Resources */,
+				6CE2268019268D13000B595E /* Credits.rtf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6CE2268B19268D13000B595E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6CE2266819268D13000B595E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6CE226A819268E10000B595E /* glew.c in Sources */,
+				6CE2267C19268D13000B595E /* main.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6CE2268919268D13000B595E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		6CE2269219268D13000B595E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6CE2266B19268D13000B595E /* open-safari */;
+			targetProxy = 6CE2269119268D13000B595E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		6CE2267819268D13000B595E /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6CE2267919268D13000B595E /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		6CE2267E19268D13000B595E /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6CE2267F19268D13000B595E /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		6CE2269B19268D13000B595E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		6CE2269C19268D13000B595E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		6CE2269E19268D13000B595E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = NO;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "open-safari/open-safari-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"\"$(PROJECT_DIR)/thirdparty\"/**",
+				);
+				INFOPLIST_FILE = "open-safari/open-safari-Info.plist";
+				LIBRARY_SEARCH_PATHS = "\"$(PROJECT_DIR)/thirdparty\"/**";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		6CE2269F19268D13000B595E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = NO;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "open-safari/open-safari-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"\"$(PROJECT_DIR)/thirdparty\"/**",
+				);
+				INFOPLIST_FILE = "open-safari/open-safari-Info.plist";
+				LIBRARY_SEARCH_PATHS = "\"$(PROJECT_DIR)/thirdparty\"/**";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		6CE226A119268D13000B595E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/open-safari.app/Contents/MacOS/open-safari";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "open-safari/open-safari-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "open-safariTests/open-safariTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		6CE226A219268D13000B595E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/open-safari.app/Contents/MacOS/open-safari";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "open-safari/open-safari-Prefix.pch";
+				INFOPLIST_FILE = "open-safariTests/open-safariTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6CE2266719268D13000B595E /* Build configuration list for PBXProject "open-safari" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6CE2269B19268D13000B595E /* Debug */,
+				6CE2269C19268D13000B595E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6CE2269D19268D13000B595E /* Build configuration list for PBXNativeTarget "open-safari" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6CE2269E19268D13000B595E /* Debug */,
+				6CE2269F19268D13000B595E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6CE226A019268D13000B595E /* Build configuration list for PBXNativeTarget "open-safariTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6CE226A119268D13000B595E /* Debug */,
+				6CE226A219268D13000B595E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 6CE2266419268D13000B595E /* Project object */;
+}

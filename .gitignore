@@ -19,3 +19,7 @@
 *.exe
 *.out
 *.app
+
+# OSX back files
+**.DS_Store
+
