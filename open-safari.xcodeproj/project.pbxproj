@@ -9,13 +9,17 @@
 /* Begin PBXBuildFile section */
 		6CE2267019268D13000B595E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CE2266F19268D13000B595E /* Cocoa.framework */; };
 		6CE2267A19268D13000B595E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6CE2267819268D13000B595E /* InfoPlist.strings */; };
-		6CE2267C19268D13000B595E /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6CE2267B19268D13000B595E /* main.mm */; };
 		6CE2268019268D13000B595E /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 6CE2267E19268D13000B595E /* Credits.rtf */; };
 		6CE2269019268D13000B595E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CE2266F19268D13000B595E /* Cocoa.framework */; };
 		6CE226A419268DEA000B595E /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CE226A319268DEA000B595E /* OpenGL.framework */; };
 		6CE226A619268DEF000B595E /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CE226A519268DEF000B595E /* IOKit.framework */; };
 		6CE226A819268E10000B595E /* glew.c in Sources */ = {isa = PBXBuildFile; fileRef = 6CE226A719268E10000B595E /* glew.c */; };
 		6CE226AA19268E19000B595E /* libglfw.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CE226A919268E19000B595E /* libglfw.a */; };
+		6CE226C519270B6E000B595E /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6CE226C019270B6E000B595E /* main.mm */; };
+		6CE226C619270B6E000B595E /* Program.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6CE226C119270B6E000B595E /* Program.cpp */; };
+		6CE226C719270B6E000B595E /* Shader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6CE226C319270B6E000B595E /* Shader.cpp */; };
+		6CE226CA19270B83000B595E /* vertex-shader.txt in Resources */ = {isa = PBXBuildFile; fileRef = 6CE226C919270B83000B595E /* vertex-shader.txt */; };
+		6CE226CC19270BB8000B595E /* fragment-shader.txt in Resources */ = {isa = PBXBuildFile; fileRef = 6CE226CB19270BB8000B595E /* fragment-shader.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,7 +37,6 @@
 		6CE2266F19268D13000B595E /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		6CE2267719268D13000B595E /* open-safari-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "open-safari-Info.plist"; sourceTree = "<group>"; };
 		6CE2267919268D13000B595E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		6CE2267B19268D13000B595E /* main.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
 		6CE2267D19268D13000B595E /* open-safari-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "open-safari-Prefix.pch"; sourceTree = "<group>"; };
 		6CE2267F19268D13000B595E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
 		6CE2268D19268D13000B595E /* open-safariTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "open-safariTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -41,6 +44,13 @@
 		6CE226A519268DEF000B595E /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
 		6CE226A719268E10000B595E /* glew.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = glew.c; path = thirdparty/glew/src/glew.c; sourceTree = "<group>"; };
 		6CE226A919268E19000B595E /* libglfw.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libglfw.a; path = thirdparty/glfw/libglfw.a; sourceTree = "<group>"; };
+		6CE226C019270B6E000B595E /* main.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = main.mm; path = sources/main.mm; sourceTree = "<group>"; };
+		6CE226C119270B6E000B595E /* Program.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Program.cpp; path = sources/Program.cpp; sourceTree = "<group>"; };
+		6CE226C219270B6E000B595E /* Program.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Program.h; path = sources/Program.h; sourceTree = "<group>"; };
+		6CE226C319270B6E000B595E /* Shader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Shader.cpp; path = sources/Shader.cpp; sourceTree = "<group>"; };
+		6CE226C419270B6E000B595E /* Shader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Shader.h; path = sources/Shader.h; sourceTree = "<group>"; };
+		6CE226C919270B83000B595E /* vertex-shader.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "vertex-shader.txt"; sourceTree = "<group>"; };
+		6CE226CB19270BB8000B595E /* fragment-shader.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "fragment-shader.txt"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,7 +109,12 @@
 		6CE2267519268D13000B595E /* open-safari */ = {
 			isa = PBXGroup;
 			children = (
-				6CE2267B19268D13000B595E /* main.mm */,
+				6CE226C019270B6E000B595E /* main.mm */,
+				6CE226C119270B6E000B595E /* Program.cpp */,
+				6CE226C219270B6E000B595E /* Program.h */,
+				6CE226C319270B6E000B595E /* Shader.cpp */,
+				6CE226C419270B6E000B595E /* Shader.h */,
+				6CE226C819270B76000B595E /* resources */,
 				6CE2267619268D13000B595E /* Supporting Files */,
 			);
 			path = "open-safari";
@@ -114,6 +129,15 @@
 				6CE2267E19268D13000B595E /* Credits.rtf */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		6CE226C819270B76000B595E /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				6CE226C919270B83000B595E /* vertex-shader.txt */,
+				6CE226CB19270BB8000B595E /* fragment-shader.txt */,
+			);
+			path = resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -192,6 +216,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6CE226CA19270B83000B595E /* vertex-shader.txt in Resources */,
+				6CE226CC19270BB8000B595E /* fragment-shader.txt in Resources */,
 				6CE2267A19268D13000B595E /* InfoPlist.strings in Resources */,
 				6CE2268019268D13000B595E /* Credits.rtf in Resources */,
 			);
@@ -211,8 +237,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6CE226C619270B6E000B595E /* Program.cpp in Sources */,
+				6CE226C519270B6E000B595E /* main.mm in Sources */,
+				6CE226C719270B6E000B595E /* Shader.cpp in Sources */,
 				6CE226A819268E10000B595E /* glew.c in Sources */,
-				6CE2267C19268D13000B595E /* main.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
