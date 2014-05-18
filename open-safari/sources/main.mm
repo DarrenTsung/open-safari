@@ -11,6 +11,7 @@
 #include <GL/glew.h>
 #include <GL/glfw.h>
 #include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
 
 // standard libraries
 #import <iostream> 
@@ -20,12 +21,14 @@
 
 // constants
 const glm::vec2 SCREEN_SIZE(800, 600);
+const float FPS = 60;
 
 // globals
 tdogl::Program* gProgram = NULL;
 tdogl::Texture* gTexture = NULL;
 GLuint gVAO = 0;
 GLuint gVBO = 0;
+float gDegreesRotated = 0.0f;
 
 
 // returns the full path the file `fileName` in the resources directory of the bundle
@@ -41,10 +44,19 @@ static void LoadShaders() {
     shaders.push_back(tdogl::Shader::shaderFromFile(ResourcePath("vertex-shader.txt"), GL_VERTEX_SHADER));
     shaders.push_back(tdogl::Shader::shaderFromFile(ResourcePath("fragment-shader.txt"), GL_FRAGMENT_SHADER));
     gProgram = new tdogl::Program(shaders);
+    
+    gProgram->use();
+    // create the camera matrix and set it as the uniform once (since it's not changing in the program)
+    glm::mat4 camera = glm::lookAt(glm::vec3(3,3,3), glm::vec3(0,0,0), glm::vec3(0.0,1.0,0.0));
+    gProgram->setUniform("camera", camera);
+    // create the projection matrix
+    glm::mat4 projection = glm::perspective<float>(50.0, SCREEN_SIZE.x/SCREEN_SIZE.y, 0.1, 100);
+    gProgram->setUniform("projection", projection);
+    gProgram->stopUsing();
 }
 
 static void LoadTextures() {
-    tdogl::Bitmap bmp = tdogl::Bitmap::bitmapFromFile(ResourcePath("hazard.png"));
+    tdogl::Bitmap bmp = tdogl::Bitmap::bitmapFromFile(ResourcePath("wooden-crate.jpg"));
     bmp.flipVertically();
     gTexture = new tdogl::Texture(bmp);
 }
@@ -58,12 +70,56 @@ static void LoadTriangle() {
     glGenBuffers(1, &gVBO);
     glBindBuffer(GL_ARRAY_BUFFER, gVBO);
     
-    // put the three triangles verticies into the array
+    // put the vertices to represent a box
     GLfloat vertexData[] = {
-        // X    Y     Z       U     V
-         0.0f, 0.8f, 0.0f,   0.5f, 1.0f,
-        -0.8f,-0.8f, 0.0f,   0.0f, 0.0f,
-         0.8f,-0.8f, 0.0f,   1.0f, 0.0f
+        //  X     Y     Z       U     V
+        // bottom
+        -1.0f,-1.0f,-1.0f,   0.0f, 0.0f,
+        1.0f,-1.0f,-1.0f,   1.0f, 0.0f,
+        -1.0f,-1.0f, 1.0f,   0.0f, 1.0f,
+        1.0f,-1.0f,-1.0f,   1.0f, 0.0f,
+        1.0f,-1.0f, 1.0f,   1.0f, 1.0f,
+        -1.0f,-1.0f, 1.0f,   0.0f, 1.0f,
+        
+        // top
+        -1.0f, 1.0f,-1.0f,   0.0f, 0.0f,
+        -1.0f, 1.0f, 1.0f,   0.0f, 1.0f,
+        1.0f, 1.0f,-1.0f,   1.0f, 0.0f,
+        1.0f, 1.0f,-1.0f,   1.0f, 0.0f,
+        -1.0f, 1.0f, 1.0f,   0.0f, 1.0f,
+        1.0f, 1.0f, 1.0f,   1.0f, 1.0f,
+        
+        // front
+        -1.0f,-1.0f, 1.0f,   1.0f, 0.0f,
+        1.0f,-1.0f, 1.0f,   0.0f, 0.0f,
+        -1.0f, 1.0f, 1.0f,   1.0f, 1.0f,
+        1.0f,-1.0f, 1.0f,   0.0f, 0.0f,
+        1.0f, 1.0f, 1.0f,   0.0f, 1.0f,
+        -1.0f, 1.0f, 1.0f,   1.0f, 1.0f,
+        
+        // back
+        -1.0f,-1.0f,-1.0f,   0.0f, 0.0f,
+        -1.0f, 1.0f,-1.0f,   0.0f, 1.0f,
+        1.0f,-1.0f,-1.0f,   1.0f, 0.0f,
+        1.0f,-1.0f,-1.0f,   1.0f, 0.0f,
+        -1.0f, 1.0f,-1.0f,   0.0f, 1.0f,
+        1.0f, 1.0f,-1.0f,   1.0f, 1.0f,
+        
+        // left
+        -1.0f,-1.0f, 1.0f,   0.0f, 1.0f,
+        -1.0f, 1.0f,-1.0f,   1.0f, 0.0f,
+        -1.0f,-1.0f,-1.0f,   0.0f, 0.0f,
+        -1.0f,-1.0f, 1.0f,   0.0f, 1.0f,
+        -1.0f, 1.0f, 1.0f,   1.0f, 1.0f,
+        -1.0f, 1.0f,-1.0f,   1.0f, 0.0f,
+        
+        // right
+        1.0f,-1.0f, 1.0f,   1.0f, 1.0f,
+        1.0f,-1.0f,-1.0f,   1.0f, 0.0f,
+        1.0f, 1.0f,-1.0f,   0.0f, 0.0f,
+        1.0f,-1.0f, 1.0f,   1.0f, 1.0f,
+        1.0f, 1.0f,-1.0f,   0.0f, 0.0f,
+        1.0f, 1.0f, 1.0f,   0.0f, 1.0f
     };
     glBufferData(GL_ARRAY_BUFFER, sizeof(vertexData), vertexData, GL_STATIC_DRAW);
     
@@ -84,7 +140,7 @@ static void LoadTriangle() {
 static void Render() {
     // clear everything
     glClearColor(0, 0, 0, 1); // black
-    glClear(GL_COLOR_BUFFER_BIT);
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     
     
     // bind the program (shaders)
@@ -94,11 +150,13 @@ static void Render() {
     glBindTexture(GL_TEXTURE_2D, gTexture->object());
     gProgram->setUniform("tex", 0);
     
+    gProgram->setUniform("model", glm::rotate(glm::mat4(), gDegreesRotated, glm::vec3(0,1,0)));
+    
     // bind the VAO
     glBindVertexArray(gVAO);
     
     // draw the VAO
-    glDrawArrays(GL_TRIANGLES, 0, 3);
+    glDrawArrays(GL_TRIANGLES, 0, 6*2*3);
     
     // unbind the VAO and program
     glBindVertexArray(0);
@@ -107,6 +165,12 @@ static void Render() {
     
     // swap the display buffers (displays what was just drawn)
     glfwSwapBuffers();
+}
+
+static void Update(float delta) {
+    const GLfloat degreesPerSecond = 90.0f;
+    gDegreesRotated += delta * degreesPerSecond;
+    while(gDegreesRotated > 360.0f) gDegreesRotated -= 360.0f;
 }
 
 void AppMain() {
@@ -118,8 +182,11 @@ void AppMain() {
     glfwOpenWindowHint(GLFW_OPENGL_VERSION_MAJOR, 3);
     glfwOpenWindowHint(GLFW_OPENGL_VERSION_MINOR, 2);
     glfwOpenWindowHint(GLFW_WINDOW_NO_RESIZE, GL_TRUE);
-    if (!glfwOpenWindow(SCREEN_SIZE.x, SCREEN_SIZE.y, 8, 8, 8, 8, 0, 0, GLFW_WINDOW))
+    if (!glfwOpenWindow(SCREEN_SIZE.x, SCREEN_SIZE.y, 8, 8, 8, 8, 16, 0, GLFW_WINDOW))
         throw std::runtime_error("glfwOpenWindow() failed!");
+    
+    glEnable(GL_DEPTH_TEST);
+    glDepthFunc(GL_LESS);
     
     // initialise GLEW
     glewExperimental = GL_TRUE; //stops glew crashing on OSX :-/
@@ -144,9 +211,24 @@ void AppMain() {
     // create buffers by points
     LoadTriangle();
     
+    double lastTime = glfwGetTime();
     // run while the window is open
     while(glfwGetWindowParam(GLFW_OPENED)){
+        // update the scene based that the previous time
+        double currTime = glfwGetTime();
+        float delta = currTime - lastTime;
+        while (delta <= 1.0f/FPS) {
+            currTime = glfwGetTime();
+            delta = currTime - lastTime;
+        }
+        lastTime = currTime;
+        Update(delta);
         Render();
+        
+        // check for errors
+        GLenum error = glGetError();
+        if(error != GL_NO_ERROR)
+            std::cerr << "OpenGL Error " << error << ": " << (const char*)gluErrorString(error) << std::endl;
     }
     
     glfwTerminate();

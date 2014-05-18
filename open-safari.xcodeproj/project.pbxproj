@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6C976D781928800500C38CAB /* Texture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C976D761928800500C38CAB /* Texture.cpp */; };
+		6C976D7A19292AB600C38CAB /* wooden-crate.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6C976D7919292AB600C38CAB /* wooden-crate.jpg */; };
 		6CE2267019268D13000B595E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CE2266F19268D13000B595E /* Cocoa.framework */; };
 		6CE2267A19268D13000B595E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6CE2267819268D13000B595E /* InfoPlist.strings */; };
 		6CE2268019268D13000B595E /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 6CE2267E19268D13000B595E /* Credits.rtf */; };
@@ -38,6 +39,7 @@
 /* Begin PBXFileReference section */
 		6C976D761928800500C38CAB /* Texture.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Texture.cpp; sourceTree = "<group>"; };
 		6C976D771928800500C38CAB /* Texture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Texture.h; sourceTree = "<group>"; };
+		6C976D7919292AB600C38CAB /* wooden-crate.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "wooden-crate.jpg"; sourceTree = "<group>"; };
 		6CE2266C19268D13000B595E /* open-safari.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "open-safari.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6CE2266F19268D13000B595E /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		6CE2267719268D13000B595E /* open-safari-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "open-safari-Info.plist"; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 		6CE226C819270B76000B595E /* resources */ = {
 			isa = PBXGroup;
 			children = (
+				6C976D7919292AB600C38CAB /* wooden-crate.jpg */,
 				6CE226CD1927C497000B595E /* hazard.png */,
 				6CE226C919270B83000B595E /* vertex-shader.txt */,
 				6CE226CB19270BB8000B595E /* fragment-shader.txt */,
@@ -239,6 +242,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6CE226CA19270B83000B595E /* vertex-shader.txt in Resources */,
+				6C976D7A19292AB600C38CAB /* wooden-crate.jpg in Resources */,
 				6CE226CE1927C497000B595E /* hazard.png in Resources */,
 				6CE226CC19270BB8000B595E /* fragment-shader.txt in Resources */,
 				6CE2267A19268D13000B595E /* InfoPlist.strings in Resources */,
