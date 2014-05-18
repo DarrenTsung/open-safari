@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6C976D781928800500C38CAB /* Texture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C976D761928800500C38CAB /* Texture.cpp */; };
 		6CE2267019268D13000B595E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CE2266F19268D13000B595E /* Cocoa.framework */; };
 		6CE2267A19268D13000B595E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6CE2267819268D13000B595E /* InfoPlist.strings */; };
 		6CE2268019268D13000B595E /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 6CE2267E19268D13000B595E /* Credits.rtf */; };
@@ -16,10 +17,12 @@
 		6CE226A819268E10000B595E /* glew.c in Sources */ = {isa = PBXBuildFile; fileRef = 6CE226A719268E10000B595E /* glew.c */; };
 		6CE226AA19268E19000B595E /* libglfw.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CE226A919268E19000B595E /* libglfw.a */; };
 		6CE226C519270B6E000B595E /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6CE226C019270B6E000B595E /* main.mm */; };
-		6CE226C619270B6E000B595E /* Program.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6CE226C119270B6E000B595E /* Program.cpp */; };
-		6CE226C719270B6E000B595E /* Shader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6CE226C319270B6E000B595E /* Shader.cpp */; };
 		6CE226CA19270B83000B595E /* vertex-shader.txt in Resources */ = {isa = PBXBuildFile; fileRef = 6CE226C919270B83000B595E /* vertex-shader.txt */; };
 		6CE226CC19270BB8000B595E /* fragment-shader.txt in Resources */ = {isa = PBXBuildFile; fileRef = 6CE226CB19270BB8000B595E /* fragment-shader.txt */; };
+		6CE226CE1927C497000B595E /* hazard.png in Resources */ = {isa = PBXBuildFile; fileRef = 6CE226CD1927C497000B595E /* hazard.png */; };
+		6CE226D41927C4D1000B595E /* Program.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6CE226D01927C4D1000B595E /* Program.cpp */; };
+		6CE226D51927C4D1000B595E /* Shader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6CE226D21927C4D1000B595E /* Shader.cpp */; };
+		6CE226D81927C4E7000B595E /* Bitmap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6CE226D61927C4E7000B595E /* Bitmap.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,6 +36,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6C976D761928800500C38CAB /* Texture.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Texture.cpp; sourceTree = "<group>"; };
+		6C976D771928800500C38CAB /* Texture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Texture.h; sourceTree = "<group>"; };
 		6CE2266C19268D13000B595E /* open-safari.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "open-safari.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6CE2266F19268D13000B595E /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		6CE2267719268D13000B595E /* open-safari-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "open-safari-Info.plist"; sourceTree = "<group>"; };
@@ -45,12 +50,15 @@
 		6CE226A719268E10000B595E /* glew.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = glew.c; path = thirdparty/glew/src/glew.c; sourceTree = "<group>"; };
 		6CE226A919268E19000B595E /* libglfw.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libglfw.a; path = thirdparty/glfw/libglfw.a; sourceTree = "<group>"; };
 		6CE226C019270B6E000B595E /* main.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = main.mm; path = sources/main.mm; sourceTree = "<group>"; };
-		6CE226C119270B6E000B595E /* Program.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Program.cpp; path = sources/Program.cpp; sourceTree = "<group>"; };
-		6CE226C219270B6E000B595E /* Program.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Program.h; path = sources/Program.h; sourceTree = "<group>"; };
-		6CE226C319270B6E000B595E /* Shader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Shader.cpp; path = sources/Shader.cpp; sourceTree = "<group>"; };
-		6CE226C419270B6E000B595E /* Shader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Shader.h; path = sources/Shader.h; sourceTree = "<group>"; };
 		6CE226C919270B83000B595E /* vertex-shader.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "vertex-shader.txt"; sourceTree = "<group>"; };
 		6CE226CB19270BB8000B595E /* fragment-shader.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "fragment-shader.txt"; sourceTree = "<group>"; };
+		6CE226CD1927C497000B595E /* hazard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hazard.png; sourceTree = "<group>"; };
+		6CE226D01927C4D1000B595E /* Program.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Program.cpp; sourceTree = "<group>"; };
+		6CE226D11927C4D1000B595E /* Program.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Program.h; sourceTree = "<group>"; };
+		6CE226D21927C4D1000B595E /* Shader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Shader.cpp; sourceTree = "<group>"; };
+		6CE226D31927C4D1000B595E /* Shader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shader.h; sourceTree = "<group>"; };
+		6CE226D61927C4E7000B595E /* Bitmap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Bitmap.cpp; sourceTree = "<group>"; };
+		6CE226D71927C4E7000B595E /* Bitmap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bitmap.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,10 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				6CE226C019270B6E000B595E /* main.mm */,
-				6CE226C119270B6E000B595E /* Program.cpp */,
-				6CE226C219270B6E000B595E /* Program.h */,
-				6CE226C319270B6E000B595E /* Shader.cpp */,
-				6CE226C419270B6E000B595E /* Shader.h */,
+				6CE226CF1927C4D1000B595E /* tdogl */,
 				6CE226C819270B76000B595E /* resources */,
 				6CE2267619268D13000B595E /* Supporting Files */,
 			);
@@ -134,10 +139,27 @@
 		6CE226C819270B76000B595E /* resources */ = {
 			isa = PBXGroup;
 			children = (
+				6CE226CD1927C497000B595E /* hazard.png */,
 				6CE226C919270B83000B595E /* vertex-shader.txt */,
 				6CE226CB19270BB8000B595E /* fragment-shader.txt */,
 			);
 			path = resources;
+			sourceTree = "<group>";
+		};
+		6CE226CF1927C4D1000B595E /* tdogl */ = {
+			isa = PBXGroup;
+			children = (
+				6CE226D01927C4D1000B595E /* Program.cpp */,
+				6CE226D11927C4D1000B595E /* Program.h */,
+				6CE226D21927C4D1000B595E /* Shader.cpp */,
+				6CE226D31927C4D1000B595E /* Shader.h */,
+				6CE226D61927C4E7000B595E /* Bitmap.cpp */,
+				6CE226D71927C4E7000B595E /* Bitmap.h */,
+				6C976D761928800500C38CAB /* Texture.cpp */,
+				6C976D771928800500C38CAB /* Texture.h */,
+			);
+			name = tdogl;
+			path = sources/tdogl;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -217,6 +239,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6CE226CA19270B83000B595E /* vertex-shader.txt in Resources */,
+				6CE226CE1927C497000B595E /* hazard.png in Resources */,
 				6CE226CC19270BB8000B595E /* fragment-shader.txt in Resources */,
 				6CE2267A19268D13000B595E /* InfoPlist.strings in Resources */,
 				6CE2268019268D13000B595E /* Credits.rtf in Resources */,
@@ -237,9 +260,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6CE226C619270B6E000B595E /* Program.cpp in Sources */,
+				6CE226D41927C4D1000B595E /* Program.cpp in Sources */,
+				6CE226D81927C4E7000B595E /* Bitmap.cpp in Sources */,
 				6CE226C519270B6E000B595E /* main.mm in Sources */,
-				6CE226C719270B6E000B595E /* Shader.cpp in Sources */,
+				6C976D781928800500C38CAB /* Texture.cpp in Sources */,
+				6CE226D51927C4D1000B595E /* Shader.cpp in Sources */,
 				6CE226A819268E10000B595E /* glew.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -23,3 +23,8 @@
 # OSX back files
 **.DS_Store
 
+# XCode crap
+**.xcuserstate
+**.xcbkptlist
+
+**.swp

@@ -15,13 +15,15 @@
 // standard libraries
 #import <iostream> 
 
-#import "Program.h"
+#import "tdogl/Program.h"
+#import "tdogl/Texture.h"
 
 // constants
 const glm::vec2 SCREEN_SIZE(800, 600);
 
 // globals
 tdogl::Program* gProgram = NULL;
+tdogl::Texture* gTexture = NULL;
 GLuint gVAO = 0;
 GLuint gVBO = 0;
 
@@ -41,6 +43,12 @@ static void LoadShaders() {
     gProgram = new tdogl::Program(shaders);
 }
 
+static void LoadTextures() {
+    tdogl::Bitmap bmp = tdogl::Bitmap::bitmapFromFile(ResourcePath("hazard.png"));
+    bmp.flipVertically();
+    gTexture = new tdogl::Texture(bmp);
+}
+
 static void LoadTriangle() {
     // make and bind the VAO
     glGenVertexArrays(1, &gVAO);
@@ -52,16 +60,20 @@ static void LoadTriangle() {
     
     // put the three triangles verticies into the array
     GLfloat vertexData[] = {
-        // X    Y     Z
-         0.0f, 0.8f, 0.0f,
-        -0.8f,-0.8f, 0.0f,
-         0.8f,-0.8f, 0.0f
+        // X    Y     Z       U     V
+         0.0f, 0.8f, 0.0f,   0.5f, 1.0f,
+        -0.8f,-0.8f, 0.0f,   0.0f, 0.0f,
+         0.8f,-0.8f, 0.0f,   1.0f, 0.0f
     };
     glBufferData(GL_ARRAY_BUFFER, sizeof(vertexData), vertexData, GL_STATIC_DRAW);
     
     // connect the xyz to the "vert" attribute of the vertex shader
     glEnableVertexAttribArray(gProgram->attrib("vert"));
-    glVertexAttribPointer(gProgram->attrib("vert"), 3, GL_FLOAT, GL_FALSE, 0, NULL);
+    glVertexAttribPointer(gProgram->attrib("vert"), 3, GL_FLOAT, GL_FALSE, 5*sizeof(GLfloat), NULL);
+    
+    // connect the uv coordinates to the "vertTextCoord" attribute of the vertex shader
+    glEnableVertexAttribArray(gProgram->attrib("vertTexCoord"));
+    glVertexAttribPointer(gProgram->attrib("vertTexCoord"), 2, GL_FLOAT, GL_TRUE, 5*sizeof(GLfloat), (const GLvoid*)(3*sizeof(GLfloat)));
     
     // unbind the VBO and VAO
     glBindBuffer(GL_ARRAY_BUFFER, 0);
@@ -76,7 +88,12 @@ static void Render() {
     
     
     // bind the program (shaders)
-    glUseProgram(gProgram->object());
+    gProgram->use();
+    // bind the textures
+    glActiveTexture(GL_TEXTURE0);
+    glBindTexture(GL_TEXTURE_2D, gTexture->object());
+    gProgram->setUniform("tex", 0);
+    
     // bind the VAO
     glBindVertexArray(gVAO);
     
@@ -85,7 +102,8 @@ static void Render() {
     
     // unbind the VAO and program
     glBindVertexArray(0);
-    glUseProgram(0);
+    glBindTexture(GL_TEXTURE_2D, 0);
+    gProgram->stopUsing();
     
     // swap the display buffers (displays what was just drawn)
     glfwSwapBuffers();
@@ -120,6 +138,8 @@ void AppMain() {
     
     // load the shaders and create the main program
     LoadShaders();
+    // load the textures
+    LoadTextures();
     
     // create buffers by points
     LoadTriangle();
