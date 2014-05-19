@@ -14,6 +14,14 @@
 
 class Player {
     /**
+     Type for keeping track of the player state
+     */
+    enum PlayerState {
+        GROUND = 0,
+        IN_AIR = 1
+    };
+    
+    /**
      Player class that controls the camera and handles movement.
      
      Uses the matrix method to give a view and projection to the program.
@@ -143,6 +151,9 @@ private:
     float _nearPlane;
     float _farPlane;
     float _viewportAspectRatio;
+    
+    float _height;
+    PlayerState _state;
 
     void normalizeAngles();
 };

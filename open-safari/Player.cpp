@@ -26,7 +26,10 @@ _verticalAngle(0.0f),
 _fieldOfView(50.0f),
 _nearPlane(0.01f),
 _farPlane(100.0f),
-_viewportAspectRatio(4.0f/3.0f)
+_viewportAspectRatio(4.0f/3.0f),
+_height(2.0f),
+_velocity(0.0f, 0.0f, 0.0f),
+_state(GROUND)
 {
 }
 
@@ -43,10 +46,25 @@ void Player::update(float delta) {
     } else if(glfwGetKey('D')){
         _position += delta * moveSpeed * right();
     }
-    if(glfwGetKey('Z')){
-        _position += delta * moveSpeed * -glm::vec3(0,1,0);
-    } else if(glfwGetKey('X')){
-        _position += delta * moveSpeed * glm::vec3(0,1,0);
+    
+    if(glfwGetKey(' ')) {
+        if (_state == GROUND) {
+            _velocity = 3.0f * glm::vec3(0,1,0);
+            _state = IN_AIR;
+        }
+    }
+    
+    // gravity
+    const float psuedoGravity = 2.0f;
+    _velocity += delta * psuedoGravity * -glm::vec3(0,1,0);
+    
+    // add velocity to position
+    _position += delta * _velocity;
+    
+    // stop when colliding with y == 0
+    if (_position.y <= 0.0 + _height/2) {
+        _position.y = 0.0 + _height/2;
+        _state = GROUND;
     }
     
     //rotate camera based on mouse movement
