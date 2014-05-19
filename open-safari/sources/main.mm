@@ -18,6 +18,7 @@
 
 #import "tdogl/Program.h"
 #import "tdogl/Texture.h"
+#import "Player.h"
 
 // constants
 const glm::vec2 SCREEN_SIZE(800, 600);
@@ -26,6 +27,7 @@ const float FPS = 60;
 // globals
 tdogl::Program* gProgram = NULL;
 tdogl::Texture* gTexture = NULL;
+Player gPlayer;
 GLuint gVAO = 0;
 GLuint gVBO = 0;
 float gDegreesRotated = 0.0f;
@@ -48,10 +50,10 @@ static void LoadShaders() {
     gProgram->use();
     // create the camera matrix and set it as the uniform once (since it's not changing in the program)
     glm::mat4 camera = glm::lookAt(glm::vec3(3,3,3), glm::vec3(0,0,0), glm::vec3(0.0,1.0,0.0));
-    gProgram->setUniform("camera", camera);
+    //gProgram->setUniform("camera", camera);
     // create the projection matrix
     glm::mat4 projection = glm::perspective<float>(50.0, SCREEN_SIZE.x/SCREEN_SIZE.y, 0.1, 100);
-    gProgram->setUniform("projection", projection);
+    //gProgram->setUniform("projection", projection);
     gProgram->stopUsing();
 }
 
@@ -151,6 +153,7 @@ static void Render() {
     gProgram->setUniform("tex", 0);
     
     gProgram->setUniform("model", glm::rotate(glm::mat4(), gDegreesRotated, glm::vec3(0,1,0)));
+    gProgram->setUniform("player", gPlayer.matrix());
     
     // bind the VAO
     glBindVertexArray(gVAO);
@@ -168,9 +171,12 @@ static void Render() {
 }
 
 static void Update(float delta) {
-    const GLfloat degreesPerSecond = 90.0f;
+    const GLfloat degreesPerSecond = 20.0f;
     gDegreesRotated += delta * degreesPerSecond;
     while(gDegreesRotated > 360.0f) gDegreesRotated -= 360.0f;
+    
+    // update the player
+    gPlayer.update(delta);
 }
 
 void AppMain() {
@@ -184,6 +190,11 @@ void AppMain() {
     glfwOpenWindowHint(GLFW_WINDOW_NO_RESIZE, GL_TRUE);
     if (!glfwOpenWindow(SCREEN_SIZE.x, SCREEN_SIZE.y, 8, 8, 8, 8, 16, 0, GLFW_WINDOW))
         throw std::runtime_error("glfwOpenWindow() failed!");
+    
+    // GLFW settings
+    glfwDisable(GLFW_MOUSE_CURSOR);
+    glfwSetMousePos(0, 0);
+    glfwSetMouseWheel(0);
     
     glEnable(GL_DEPTH_TEST);
     glDepthFunc(GL_LESS);
@@ -211,6 +222,10 @@ void AppMain() {
     // create buffers by points
     LoadTriangle();
     
+    // setup gPlayer
+    gPlayer.setPosition(glm::vec3(0,0,4));
+    gPlayer.setViewportAspectRatio(SCREEN_SIZE.x / SCREEN_SIZE.y);
+    
     double lastTime = glfwGetTime();
     // run while the window is open
     while(glfwGetWindowParam(GLFW_OPENED)){
@@ -229,6 +244,10 @@ void AppMain() {
         GLenum error = glGetError();
         if(error != GL_NO_ERROR)
             std::cerr << "OpenGL Error " << error << ": " << (const char*)gluErrorString(error) << std::endl;
+        
+        //exit program if escape key is pressed
+        if(glfwGetKey(GLFW_KEY_ESC))
+            glfwCloseWindow();
     }
     
     glfwTerminate();
