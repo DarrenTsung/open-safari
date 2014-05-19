@@ -18,6 +18,12 @@ static inline float RadiansToDegrees(float radians) {
     return radians * 180.0f / (float)M_PI;
 }
 
+/**
+ Project the vector against the normal and then subtract that from the vector to the projection against the plane
+ */
+static inline glm::vec3 ProjectVectorOnToPlane(glm::vec3 vector, glm::vec3 planeNormal) {
+    return glm::normalize(vector - glm::dot(vector, planeNormal) * planeNormal);
+}
 
 Player::Player() :
 _position(0.0f, 0.0f, 1.0f),
@@ -29,7 +35,8 @@ _farPlane(100.0f),
 _viewportAspectRatio(4.0f/3.0f),
 _height(2.0f),
 _velocity(0.0f, 0.0f, 0.0f),
-_state(GROUND)
+_state(GROUND),
+_movementPlaneNormal(0.0f, 1.0f, 0.0f)
 {
 }
 
@@ -37,16 +44,17 @@ void Player::update(float delta) {
     const float moveSpeed = 2.0f;
     
     if(glfwGetKey('S')){
-        _position += delta * moveSpeed * -forward();
+        _position += delta * moveSpeed * ProjectVectorOnToPlane(-forward(), _movementPlaneNormal);
     } else if(glfwGetKey('W')){
-        _position += delta * moveSpeed * forward();
+        _position += delta * moveSpeed * ProjectVectorOnToPlane(forward(), _movementPlaneNormal);
     }
     if(glfwGetKey('A')){
-        _position += delta * moveSpeed * -right();
+        _position += delta * moveSpeed * ProjectVectorOnToPlane(-right(), _movementPlaneNormal);
     } else if(glfwGetKey('D')){
-        _position += delta * moveSpeed * right();
+        _position += delta * moveSpeed * ProjectVectorOnToPlane(right(), _movementPlaneNormal);
     }
     
+    // jumping
     if(glfwGetKey(' ')) {
         if (_state == GROUND) {
             _velocity = 3.0f * glm::vec3(0,1,0);

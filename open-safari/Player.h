@@ -153,6 +153,13 @@ private:
     float _viewportAspectRatio;
     
     float _height;
+    /**
+     The movement system projects the direction vector onto the player's movement plane
+     which is determined by the plane the player is standing on
+     
+     We only need to keep track of that plane's normal to define the plane
+     */
+    glm::vec3 _movementPlaneNormal;
     PlayerState _state;
 
     void normalizeAngles();
